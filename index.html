@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(241, 232, 233);
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        form{
+            text-align: center;
+            border: 3px solid blue;
+            padding: 100px;
+            margin: 50px; 
+            width: 300px;
+            border-radius: 10px;
+        }
+        label {
+            font-size: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 200px;
+            height: 25px;
+            font-size: 18px;
+        }
+        input[type="submit"]{
+            font-size: 15px;
+        }
+    </style>
+<body>
+    <h1>ĐĂNG NHẬP</h1>
+    <form id="dn">
+        <label for="username">Username  </label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password  </label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Đăng nhập">
+        <input type="button" id="forgot" value="Quên mật khẩu">
+        <input type="button" id="register" value="Đăng kí">
+
+    </form>
+
+    <script>
+  document.getElementById('dn').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === '' || password === '') {
+                alert('Vui lòng không để trống ô username hoặc password!');
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            } else if (username !== 'admin' || password !== 'admin123') {
+                alert('Username hoặc password không đúng. Vui lòng nhập lại!');
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            } else {
+                window.location.href = 'trangchu.html';
+            }
+        });
+
+    document.getElementById('forgot').addEventListener('click', function(event) {
+            event.preventDefault();
+            var email = prompt('Vui lòng nhập email của bạn:');
+            alert('Một email đã được gửi đến ' + email + ' để khôi phục mật khẩu.');
+        });
+
+    document.getElementById('register').addEventListener('click', function(event) {
+            window.location.href = 'dangki.html';
+        });
+    </script>
+</body>
+</html>

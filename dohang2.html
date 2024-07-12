@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/dohang.css" type="text/css">
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script >
+        $(document).ready(function(){
+            $('.large-image').hover(function() {
+                $(this).css("transform", "scale(1.2)");
+            }, function() {
+                $(this).css("transform", "scale(1)");
+            });
+    
+            $('.small-image').click(function() {
+                var smallImageSrc = $(this).attr('src');
+                $('.large-image').attr('src', smallImageSrc);
+            });
+        });
+
+        function updateTotal() {
+            var quantity = document.getElementById('quantity').value;
+            var price = 600000;
+            var total = quantity * price;
+            document.getElementById('total').innerText = "Tổng cộng: " + total + "đ";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="trangchu.html" style="text-decoration: none;">
+            <div>
+                <img src="./img/logo.png" width="200" height="200">
+            </div>
+        <h1>Flower Shop</h1></a>
+    <nav class="nav">
+        <ul>
+          <li><a href="trangchu.html">Trang chủ</a></li>
+          <li><a href="khuyenmai.html">Khuyến mãi hot</a></li>
+          <li><a href="maumoi.html">Mẫu hoa mới</a></li>
+          <li><a href="hoacuoi.html">Hoa tình yêu</a></li>
+          <li><a href="cayvanphong.html">Cây văn phòng</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br><br>
+    <main>
+        <div class="row">
+            <div class="column">
+                <img class="large-image" src="img/hoa3.jpg" alt="Large Image" width="100px" height="450px">
+                <div>
+                    <img class="small-image" src="img/hoa3.1.jfif" alt="Small Image 1">
+                    <img class="small-image" src="img/hoa3.2.jfif" alt="Small Image 2">
+                    <img class="small-image" src="img/hoa3.3.jfif" alt="Small Image 3">
+                    <img class="small-image" src="img/hoa3.4.jfif" alt="Small Image 4">
+                </div>
+            </div>
+            <div class="column">
+                <h2>SONG HỈ CỒ 30 BÔNG</h2><br><br>
+                <p>Sản phẩm bao gồm: Hồng đỏ nhung 30, bình hoa thủy tinh dung tích 100ml.</p>
+                <p>Hồng song hỷ là loài hoa được kết hợp giữa màu hồng và màu trắng hai màu sắc thể hiện hai con tim khác nhau nhưng lại có chung một nhịp đập.</p><p>Điều đó chính là tượng trưng cho tình yêu đôi lứa mãnh liệt, say nồng của tuổi trẻ nhưng không kém phấn ngọt ngào.</p><p> Bó hoa này rất phù hợp để tặng cho những cặp đôi mới bắt đầu chớm nở tình yêu.</p>
+                <br>
+                <br>
+                <p>Giá gốc:<del>750.000đ</del></p>
+                <p id="price">Giá 600.000đ</p>
+                <p>Số lượng: <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"></p>
+                <p id="total">Tổng cộng: 600000đ</p>
+                <button onclick="addToCart()">Thêm vào giỏ hàng</button>
+            </div>
+          </div>
+    </main>
+    <footer>
+        <div class="ct">
+            <p>Ngọc Minh Kiên</p>
+            <p>MSV: 1771020401</p>
+            <p>Email: nkien1231@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>

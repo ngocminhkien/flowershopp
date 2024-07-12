@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(241, 232, 233);
+            margin: 0;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+        }
+        form{
+            text-align: center;
+            border: 3px solid blue;
+            padding: 100px;
+            margin: 50px; 
+            width: 300px;
+            border-radius: 10px;
+        }
+        label {
+            font-size: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="username"] {
+            width: 200px;
+            height: 25px;
+            font-size: 18px;
+        }
+        input[type="submit"]{
+            font-size: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>ĐĂNG KÝ </h1>
+    <form id="dk">
+        <label for="username">Uesr</label>
+        <input type="username "id="username" name="username"><br><br>
+        <label for="password">Pass</label>
+        <input type="password" id="password" name="password"><br><br>
+        <label for="repassword">Re-Pass  </label>
+        <input type="password" id="repassword" name="repassword"><br><br>
+        <label for="email">Email  </label>
+        <input type="email" id="email" name="email"><br><br>
+        <input type="submit" value="Đăng kí">
+    </form>
+
+    <script>
+        document.getElementById('dk').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var repassword = document.getElementById('repassword').value;
+
+            if (email === '' || password === '' || repassword === '') {
+                alert('Vui lòng không để trống ô username, email, password hoặc repassword!');
+                document.getElementById('username').value='';
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+                document.getElementById('repassword').value = '';
+            } else if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+                alert('Email không đúng định dạng. Vui lòng nhập lại!');
+                document.getElementById('email').value = '';
+            } else if (password.length < 8) {
+                alert('Password phải từ 8 ký tự trở lên. Vui lòng nhập lại!');
+                document.getElementById('password').value = '';
+                document.getElementById('repassword').value = '';
+            } else if (password !== repassword) {
+                alert('Password và Repassword phải giống nhau. Vui lòng nhập lại!');
+                document.getElementById('password').value = '';
+                document.getElementById('repassword').value = '';
+            } else {
+                alert('Đăng ký thành công!');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/dohang.css" type="text/css">
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script >
+        $(document).ready(function(){
+            $('.large-image').hover(function() {
+                $(this).css("transform", "scale(1.2)");
+            }, function() {
+                $(this).css("transform", "scale(1)");
+            });
+    
+            $('.small-image').click(function() {
+                var smallImageSrc = $(this).attr('src');
+                $('.large-image').attr('src', smallImageSrc);
+            });
+        });
+
+        function updateTotal() {
+            var quantity = document.getElementById('quantity').value;
+            var price = 4200000;
+            var total = quantity * price;
+            document.getElementById('total').innerText = "Tổng cộng: " + total + "đ";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="trangchu.html" style="text-decoration: none;">
+            <div>
+                <img src="./img/logo.png" width="200" height="200">
+            </div>
+        <h1>Flower Shop</h1></a>
+    <nav class="nav">
+        <ul>
+          <li><a href="trangchu.html">Trang chủ</a></li>
+          <li><a href="khuyenmai.html">Khuyến mãi hot</a></li>
+          <li><a href="maumoi.html">Mẫu hoa mới</a></li>
+          <li><a href="hoacuoi.html">Hoa tình yêu</a></li>
+          <li><a href="cayvanphong.html">Cây văn phòng</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br><br>
+    <main>
+        <div class="row">
+            <div class="column">
+                <img class="large-image" src="img/hoa4.jpg" alt="Large Image" width="100px" height="450px">
+                <div>
+                    <img class="small-image" src="img/hoa4.4.jpg" alt="Small Image 1">
+                    <img class="small-image" src="img/hoa4.3.jpg" alt="Small Image 2">
+                    <img class="small-image" src="img/hoa4.2.jpg" alt="Small Image 3">
+                    <img class="small-image" src="img/hoa4.1.jpg" alt="Small Image 4">
+                </div>
+            </div>
+            <div class="column">
+                <h2>LUXURY VASE 17</h2><br>
+                <p>Sản phẩm bao gồm:</p>
+                <p>cẩm chướng đơn trắng 15.</p>
+                <p>Cúc mẫu đơn trắng 7.</p>
+                <p>Cúc mẫu đơn xanh cốm 10.</p>
+                <p>Hồng xanh lưu ly 5.</p>
+                <p>Bó hoa “LUXURY VASE 17” tượng trưng cho sự sang trọng và quý phái.</p> <p>Sự kết hợp giữa các loài hoa khác nhau tạo nên một bó hoa độc đáo và đẹp mắt.</p><p>Bó hoa này rất phù hợp để tặng trong các dịp đặc biệt như sinh nhật, kỷ niệm, hoặc để bày tỏ tình cảm</p>
+                <br>
+                <br>
+                <p>Giá gốc:<del>5.000.000đ</del></p>
+                <p id="price">Giá 4.200,000đ</p>
+                <p>Số lượng: <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"></p>
+                <p id="total">Tổng cộng: 4.200000đ</p>
+                <button onclick="addToCart()">Thêm vào giỏ hàng</button>
+            </div>
+          </div>
+    </main>
+    <footer>
+        <div class="ct">
+            <p>Ngọc Minh Kiên</p>
+            <p>MSV: 1771020401</p>
+            <p>Email: nkien1231@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>

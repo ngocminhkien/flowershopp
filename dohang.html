@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/dohang.css" type="text/css">
+    <script src="jquery/jquery-3.7.1.js"></script>
+    <script >
+        $(document).ready(function(){
+            $('.large-image').hover(function() {
+                $(this).css("transform", "scale(1.2)");
+            }, function() {
+                $(this).css("transform", "scale(1)");
+            });
+    
+            $('.small-image').click(function() {
+                var smallImageSrc = $(this).attr('src');
+                $('.large-image').attr('src', smallImageSrc);
+            });
+        });
+
+        function updateTotal() {
+            var quantity = document.getElementById('quantity').value;
+            var price = 450000;
+            var total = quantity * price;
+            document.getElementById('total').innerText = "Tổng cộng: " + total + "đ";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="trangchu.html" style="text-decoration: none;">
+            <div>
+                <img src="./img/logo.png" width="200" height="200">
+            </div>
+        <h1>Flower Shop</h1></a>
+    <nav class="nav">
+        <ul>
+          <li><a href="trangchu.html">Trang chủ</a></li>
+          <li><a href="khuyenmai.html">Khuyến mãi hot</a></li>
+          <li><a href="maumoi.html">Mẫu hoa mới</a></li>
+          <li><a href="hoacuoi.html">Hoa tình yêu</a></li>
+          <li><a href="cayvanphong.html">Cây văn phòng</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br><br>
+    <main>
+        <div class="row">
+            <div class="column">
+                <img class="large-image" src="img/hoa1.jpg" alt="Large Image" width="100px" height="450px">
+                <div>
+                    <img class="small-image" src="img/hoa1.2.png" alt="Small Image 1">
+                    <img class="small-image" src="img/hoa1.3.jfif" alt="Small Image 2">
+                    <img class="small-image" src="img/joa1.4.jfif" alt="Small Image 3">
+                    <img class="small-image" src="img/hoa1.5.jfif" alt="Small Image 4">
+                </div>
+            </div>
+            <div class="column">
+                <h2>BÌNH HOA HỒNG ĐỎ NHUNG 30 BÔNG</h2><br><br>
+                <p>Sản phẩm bao gồm: Hồng đỏ nhung 30, bình hoa thủy tinh dung tích 100ml.</p>
+                <p> Chi tiết sản phẩm: Bông hồng nhung đỏ được thu hoạch tại vườn hoa Đà lạt. <p>Hồng nhung đỏ là loài hoa đặc biệt và quý hiếm được mệnh danh là "nữ hoàng" trong các loài hoa.</p><p>Đây là biểu tượng của tình yêu đôi lứa mãnh liệt,chân thành.</p>
+                <br>
+                <br>
+                <p>Giá gốc:<del>750.000đ</del></p>
+                <p id="price">Giá 450,000đ</p>
+                <p>Số lượng: <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"></p>
+                <p id="total">Tổng cộng: 450000đ</p>
+                <button onclick="addToCart()">Thanh toán</button>
+            </div>
+          </div>
+    </main>
+    <footer>
+        <div class="ct">
+            <p>Ngọc Minh Kiên</p>
+            <p>MSV: 1771020401</p>
+            <p>Email: nkien1231@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>
