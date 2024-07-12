@@ -62,9 +62,9 @@
                 alert('Vui lòng không để trống ô username hoặc password!');
                 document.getElementById('username').value = '';
                 document.getElementById('password').value = '';
-            } else if (username !== 'admin' || password !== 'admin123') {
-                alert('Username hoặc password không đúng. Vui lòng nhập lại!');
-                document.getElementById('username').value = '';
+            } else if (password.lenghtlenght<8) {
+                alert('Mật khẩu phải từ 8 ký tự trở lên!');
+                
                 document.getElementById('password').value = '';
             } else {
                 window.location.href = 'trangchu.html';
